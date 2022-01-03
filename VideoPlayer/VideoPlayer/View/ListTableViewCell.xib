@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ListTableViewCell" customModule="VideoPlayer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lhl-TV-Ewv">
+                    <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ZT-Cb-lgy">
+                    <rect key="frame" x="0.0" y="127.5" width="200" height="22.5"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8V-Zd-TCS">
+                    <rect key="frame" x="8" y="129" width="36" height="20"/>
+                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="1ZT-Cb-lgy" secondAttribute="bottom" id="E9M-ST-XEJ"/>
+                <constraint firstItem="p8V-Zd-TCS" firstAttribute="centerY" secondItem="1ZT-Cb-lgy" secondAttribute="centerY" id="H5M-Ln-hXY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lhl-TV-Ewv" secondAttribute="trailing" id="Huc-tA-tev"/>
+                <constraint firstItem="lhl-TV-Ewv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="I0y-y7-Lxz"/>
+                <constraint firstAttribute="trailing" secondItem="1ZT-Cb-lgy" secondAttribute="trailing" id="MW9-kB-eJX"/>
+                <constraint firstItem="p8V-Zd-TCS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="QE5-0Q-sr4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="lhl-TV-Ewv" secondAttribute="bottom" id="RJZ-5V-ABd"/>
+                <constraint firstItem="lhl-TV-Ewv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eq7-mG-iiH"/>
+                <constraint firstItem="1ZT-Cb-lgy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lYk-oN-RxO"/>
+                <constraint firstItem="1ZT-Cb-lgy" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.15" id="phG-oh-ctp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="previewImageView" destination="lhl-TV-Ewv" id="yRG-Hm-jB6"/>
+                <outlet property="videoNameLabel" destination="p8V-Zd-TCS" id="hU1-ym-nJ9"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="140"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
