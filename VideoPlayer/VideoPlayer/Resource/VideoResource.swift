@@ -34,7 +34,7 @@ enum VideoResource: String {
         case .firstVideo:
             url = "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
         case .secondVideo:
-            url =  "http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8"
+            url = "http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8"
         }
 
         return url

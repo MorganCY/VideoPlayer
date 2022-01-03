@@ -21,7 +21,7 @@ class ListViewController: UIViewController {
 
         setupTableView()
 
-        // Reload table view when video data is updated
+        /// Reload table view when video data is updated
         viewModel.videoViewModels.bind { [weak self] _ in
             self?.viewModel.onRefresh()
         }
@@ -33,6 +33,7 @@ class ListViewController: UIViewController {
         }
     }
 
+    // MARK: - Function
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -66,6 +67,13 @@ extension ListViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension ListViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let url = viewModel.videoViewModels.value[indexPath.row].url
+        let videoVC = VideoViewController(videoPath: url)
+        videoVC.modalPresentationStyle = .overFullScreen
+        present(videoVC, animated: true)
+    }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         view.frame.height * 0.25

@@ -22,6 +22,7 @@
 		5C96E95B2783022A00F71A7A /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E95A2783022A00F71A7A /* ListViewModel.swift */; };
 		5C96E9612783037500F71A7A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9602783037500F71A7A /* UIImage+Extension.swift */; };
 		5C96E963278303C700F71A7A /* VideoResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E962278303C700F71A7A /* VideoResource.swift */; };
+		5C96E9682783232D00F71A7A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9672783232D00F71A7A /* VideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		5C96E95A2783022A00F71A7A /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		5C96E9602783037500F71A7A /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		5C96E962278303C700F71A7A /* VideoResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResource.swift; sourceTree = "<group>"; };
+		5C96E9672783232D00F71A7A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				5C96E9372782FB9D00F71A7A /* ListViewController.swift */,
 				5C96E94D2782FF5300F71A7A /* ListTableViewCell.swift */,
 				5C96E94F2782FF7100F71A7A /* ListTableViewCell.xib */,
+				5C96E9672783232D00F71A7A /* VideoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				5C96E9552783013600F71A7A /* Box.swift in Sources */,
 				5C96E9572783019F00F71A7A /* VideoViewModel.swift in Sources */,
 				5C96E9382782FB9D00F71A7A /* ListViewController.swift in Sources */,
+				5C96E9682783232D00F71A7A /* VideoViewController.swift in Sources */,
 				5C96E959278301C000F71A7A /* Video.swift in Sources */,
 				5C96E94E2782FF5300F71A7A /* ListTableViewCell.swift in Sources */,
 				5C96E9342782FB9D00F71A7A /* AppDelegate.swift in Sources */,
