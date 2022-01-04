@@ -26,6 +26,8 @@
 		5C96E96C278407AA00F71A7A /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E96B278407AA00F71A7A /* PlayPauseButton.swift */; };
 		5C96E96E2784215D00F71A7A /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E96D2784215D00F71A7A /* CloseButton.swift */; };
 		5C96E9702784410600F71A7A /* VideoNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E96F2784410600F71A7A /* VideoNameLabel.swift */; };
+		5C96E9732784487A00F71A7A /* TimeChangingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9722784487A00F71A7A /* TimeChangingButton.swift */; };
+		5C96E97527844BE200F71A7A /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E97427844BE200F71A7A /* UIScreen+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		5C96E96B278407AA00F71A7A /* PlayPauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPauseButton.swift; sourceTree = "<group>"; };
 		5C96E96D2784215D00F71A7A /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		5C96E96F2784410600F71A7A /* VideoNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNameLabel.swift; sourceTree = "<group>"; };
+		5C96E9722784487A00F71A7A /* TimeChangingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeChangingButton.swift; sourceTree = "<group>"; };
+		5C96E97427844BE200F71A7A /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 				5C96E9482782FCA100F71A7A /* UIView+Extension.swift */,
 				5C96E951278300F900F71A7A /* UITableView+Extension.swift */,
 				5C96E9602783037500F71A7A /* UIImage+Extension.swift */,
+				5C96E97427844BE200F71A7A /* UIScreen+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				5C96E96B278407AA00F71A7A /* PlayPauseButton.swift */,
+				5C96E9722784487A00F71A7A /* TimeChangingButton.swift */,
 				5C96E96D2784215D00F71A7A /* CloseButton.swift */,
 				5C96E96F2784410600F71A7A /* VideoNameLabel.swift */,
 			);
@@ -238,6 +244,7 @@
 				5C96E952278300F900F71A7A /* UITableView+Extension.swift in Sources */,
 				5C96E96C278407AA00F71A7A /* PlayPauseButton.swift in Sources */,
 				5C96E9552783013600F71A7A /* Box.swift in Sources */,
+				5C96E97527844BE200F71A7A /* UIScreen+Extension.swift in Sources */,
 				5C96E9572783019F00F71A7A /* VideoViewModel.swift in Sources */,
 				5C96E9382782FB9D00F71A7A /* ListViewController.swift in Sources */,
 				5C96E9702784410600F71A7A /* VideoNameLabel.swift in Sources */,
@@ -249,6 +256,7 @@
 				5C96E9612783037500F71A7A /* UIImage+Extension.swift in Sources */,
 				5C96E9362782FB9D00F71A7A /* SceneDelegate.swift in Sources */,
 				5C96E963278303C700F71A7A /* VideoResource.swift in Sources */,
+				5C96E9732784487A00F71A7A /* TimeChangingButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

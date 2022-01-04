@@ -16,6 +16,8 @@ class VideoViewController: UIViewController {
     var video: Video
     var player: AVPlayer?
     let playPauseButton = PlayPauseButton()
+    let fastForwardButton = TimeChangingButton(fastForward: true)
+    let rewindButton = TimeChangingButton(fastForward: false)
     let dimmingView = UIView()
 
     // Limit orientation to landscape only
@@ -61,12 +63,14 @@ class VideoViewController: UIViewController {
         addChild(playerViewController)
         playerViewController.didMove(toParent: self)
         playPauseButton.avPlayer = player
+        fastForwardButton.avPlayer = player
+        rewindButton.avPlayer = player
     }
 
     func setupControlPanel() {
         let videoNameLabel = VideoNameLabel(text: video.name)
         let closeButton = CloseButton()
-        let controls = [videoNameLabel, closeButton, playPauseButton]
+        let controls = [videoNameLabel, closeButton, playPauseButton, fastForwardButton, rewindButton]
 
         view.stickSubView(dimmingView, toSafe: false)
         dimmingView.isHidden = true
@@ -77,6 +81,8 @@ class VideoViewController: UIViewController {
         playPauseButton.setup()
         closeButton.setup()
         videoNameLabel.layoutPosition()
+        fastForwardButton.setup()
+        rewindButton.setup()
 
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
         view.addGestureRecognizer(gesture)

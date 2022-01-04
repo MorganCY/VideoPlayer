@@ -34,7 +34,7 @@ class PlayPauseButton: UIButton {
         avPlayer?.addObserver(self, forKeyPath: "rate", options: .new, context: &kvoRateContext)
     }
 
-    @objc func tapped(_ sender: UITapGestureRecognizer) {
+    @objc func tapped(_ sender: UIButton) {
         updateStatus()
         updateImage()
     }
