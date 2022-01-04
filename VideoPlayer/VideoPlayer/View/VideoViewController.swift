@@ -13,13 +13,15 @@ import AVFoundation
 class VideoViewController: UIViewController {
 
     // MARK: - Properties
-    var videoUrl: String
-    var dimmingView = UIView()
+    var video: Video
+    var player: AVPlayer?
+    let playPauseButton = PlayPauseButton()
+    let dimmingView = UIView()
 
     // MARK: - Initializer
-    // Designated initializer which makes sure there's a video url passed into VC when being instantiated
-    init(videoPath: String) {
-        self.videoUrl = videoPath
+    // Designated initializer making sure there's a video passed in when being instantiated
+    init(video: Video) {
+        self.video = video
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -30,34 +32,56 @@ class VideoViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPlayer(videoPath: videoUrl)
+        setupPlayer(videoPath: video.url)
+        setupControlPanel()
+        view.backgroundColor = .black
     }
 
     // MARK: - Function
     func setupPlayer(videoPath: String) {
-        guard let url = URL(string: videoPath) else {
-            return
-        }
+        guard let url = URL(string: video.url) else { return }
 
-        let asset = AVURLAsset(url: url, options: nil)
-        let playerItem = AVPlayerItem(asset: asset)
-        let player = AVPlayer(playerItem: playerItem)
+        player = AVPlayer(url: url)
 
         /// Play the video automatically
-        player.rate = 1
+        player?.rate = 1
 
-        let playerFrame = CGRect(x: 0, y: 0,
-                                 width: view.frame.width,
-                                 height: view.frame.height)
         let playerViewController = AVPlayerViewController()
         playerViewController.player = player
-        playerViewController.view.frame = playerFrame
+        view.stickSubView(playerViewController.view, toSafe: true)
 
-        /// Hide controls of AVPlayer
+        /// Hide native controls of AVPlayer
         playerViewController.showsPlaybackControls = false
 
         addChild(playerViewController)
-        view.addSubview(playerViewController.view)
         playerViewController.didMove(toParent: self)
+        playPauseButton.avPlayer = player
+    }
+
+    func setupControlPanel() {
+        let videoNameLabel = VideoNameLabel(text: video.name)
+        let closeButton = CloseButton()
+        let controls = [videoNameLabel, closeButton, playPauseButton]
+
+        view.stickSubView(dimmingView, toSafe: false)
+        dimmingView.isHidden = true
+        dimmingView.backgroundColor = .black.withAlphaComponent(0.5)
+
+        controls.forEach { dimmingView.addSubview($0) }
+
+        playPauseButton.setup()
+        closeButton.setup()
+        videoNameLabel.layoutPosition()
+
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
+        view.addGestureRecognizer(gesture)
+        closeButton.closeView = { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+            self?.player?.replaceCurrentItem(with: nil)
+        }
+    }
+
+    @objc func tapped(_ sender: UITapGestureRecognizer) {
+        dimmingView.isHidden.toggle()
     }
 }

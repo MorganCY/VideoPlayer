@@ -39,7 +39,7 @@ class ListViewController: UIViewController {
         tableView.delegate = self
         tableView.backgroundColor = .clear
         tableView.registerCellWithNib(identifier: ListTableViewCell.identifier, bundle: nil)
-        view.stickSubView(tableView)
+        view.stickSubView(tableView, toSafe: true)
     }
 }
 
@@ -69,8 +69,8 @@ extension ListViewController: UITableViewDataSource {
 extension ListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let url = viewModel.videoViewModels.value[indexPath.row].url
-        let videoVC = VideoViewController(videoPath: url)
+        let video = viewModel.videoViewModels.value[indexPath.row].video
+        let videoVC = VideoViewController(video: video)
         videoVC.modalPresentationStyle = .overFullScreen
         present(videoVC, animated: true)
     }

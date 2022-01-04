@@ -12,6 +12,11 @@ enum ImageAsset: String {
 
     case firstVideo = "FirstVideo"
     case secondVideo = "SecondVideo"
+    case play = "playButton"
+    case pause = "pauseButton"
+    case fastForward = "fastForwardButton"
+    case rewind = "rewindButton"
+    case close = "close"
 }
 
 extension UIImage {
