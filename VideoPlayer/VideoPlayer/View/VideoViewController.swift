@@ -18,6 +18,11 @@ class VideoViewController: UIViewController {
     let playPauseButton = PlayPauseButton()
     let dimmingView = UIView()
 
+    // Limit orientation to landscape only
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscape
+    }
+
     // MARK: - Initializer
     // Designated initializer making sure there's a video passed in when being instantiated
     init(video: Video) {
