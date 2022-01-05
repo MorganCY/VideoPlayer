@@ -48,7 +48,10 @@ class VideoViewController: UIViewController {
     func setupPlayer(videoPath: String) {
         guard let url = URL(string: video.url) else { return }
 
-        player = AVPlayer(url: url)
+        let asset = AVAsset(url: url)
+        let item = AVPlayerItem(asset: asset)
+
+        player = AVPlayer(playerItem: item)
 
         /// Play the video automatically
         player?.rate = 1

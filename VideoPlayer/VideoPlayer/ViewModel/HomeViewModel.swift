@@ -8,11 +8,9 @@
 import Foundation
 import UIKit
 
-class ListViewModel {
+class HomeViewModel {
 
     let videoViewModels = Box([VideoViewModel]())
-
-    var refreshView: (() -> Void)?
 
     let videos = [
         Video(name: VideoResource.getName(.firstVideo),
@@ -25,11 +23,6 @@ class ListViewModel {
 
     func fetchVideos() {
         setVideoList(videos)
-    }
-
-    // Refresh the video data on targeting view
-    func onRefresh() {
-        self.refreshView?()
     }
 
     func setVideoList(_ videos: [Video]) {
