@@ -13,7 +13,7 @@ import AVFoundation
 class VideoViewController: UIViewController {
 
     // MARK: - Properties
-    var video: Video
+    var videoQueue: [Video]
     var player: AVPlayer?
     let playPauseButton = PlayPauseButton()
     let fastForwardButton = TimeChangingButton(fastForward: true)
@@ -27,8 +27,8 @@ class VideoViewController: UIViewController {
 
     // MARK: - Initializer
     // Designated initializer making sure there's a video passed in when being instantiated
-    init(video: Video) {
-        self.video = video
+    init(videoQueue: [Video]) {
+        self.videoQueue = videoQueue
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -39,14 +39,14 @@ class VideoViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPlayer(videoPath: video.url)
+        setupPlayer(videoPath: videoQueue[0].url)
         setupControlPanel()
         view.backgroundColor = .black
     }
 
     // MARK: - Function
     func setupPlayer(videoPath: String) {
-        guard let url = URL(string: video.url) else { return }
+        guard let url = URL(string: videoPath) else { return }
 
         let asset = AVAsset(url: url)
         let item = AVPlayerItem(asset: asset)
@@ -71,7 +71,7 @@ class VideoViewController: UIViewController {
     }
 
     func setupControlPanel() {
-        let videoNameLabel = VideoNameLabel(text: video.name)
+        let videoNameLabel = VideoNameLabel(text: videoQueue[0].name)
         let closeButton = CloseButton()
         let controls = [videoNameLabel, closeButton, playPauseButton, fastForwardButton, rewindButton]
 

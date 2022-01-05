@@ -5,24 +5,25 @@
 //  Created by Zheng-Yuan Yu on 2022/1/3.
 //
 
+import Foundation
 import UIKit
 
 class HomeViewController: UIViewController {
 
     // MARK: - Properties
-    let viewModel = HomeViewModel()
     let previewImageView = UIImageView()
+    let videos = [
+        Video(name: VideoResource.getName(.firstVideo),
+              url: VideoResource.getUrl(.firstVideo),
+              previewImage: UIImage.asset(.firstVideo)),
+        Video(name: VideoResource.getName(.secondVideo),
+              url: VideoResource.getUrl(.secondVideo),
+              previewImage: UIImage.asset(.secondVideo))
+    ]
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        viewModel.fetchVideos()
-
-        viewModel.videoViewModels.bind { [weak self] videos in
-            self?.previewImageView.image = videos[0].previewImage
-        }
-
         setupPreviewImageView()
     }
 
@@ -34,6 +35,7 @@ class HomeViewController: UIViewController {
         previewImageView.contentMode = .scaleAspectFill
         previewImageView.layer.cornerRadius = 10.0
         previewImageView.translatesAutoresizingMaskIntoConstraints = false
+        previewImageView.image = videos.first?.previewImage
         view.addSubview(previewImageView)
 
         NSLayoutConstraint.activate([
@@ -45,8 +47,7 @@ class HomeViewController: UIViewController {
     }
 
     @objc func tapPreviewImageView(_ sender: UIGestureRecognizer) {
-        let video = viewModel.videoViewModels.value[0].video
-        let videoVC = VideoViewController(video: video)
+        let videoVC = VideoViewController(videoQueue: videos)
         videoVC.modalPresentationStyle = .overFullScreen
         present(videoVC, animated: true)
     }
