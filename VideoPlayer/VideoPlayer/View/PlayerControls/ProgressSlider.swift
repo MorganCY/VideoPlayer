@@ -17,7 +17,6 @@ class ProgressSlider: UISlider {
         addTarget(self, action: #selector(handleSliderMoves(_:)), for: .valueChanged)
         minimumTrackTintColor = .white
         maximumTrackTintColor = .gray
-        layoutPosition()
         addDurationObserver()
     }
 
@@ -40,17 +39,5 @@ class ProgressSlider: UISlider {
             let seekTime = CMTime(value: Int64(value), timescale: 1)
             player?.seek(to: seekTime)
         }
-    }
-
-    private func layoutPosition() {
-        guard let superview = superview else { return }
-        translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 32),
-            leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: 16),
-            trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -16),
-            bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -32)
-        ])
     }
 }
