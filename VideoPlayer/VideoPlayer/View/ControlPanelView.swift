@@ -53,6 +53,7 @@ class ControlPanelView: UIView {
         setupControls()
         setupPlayerQueue()
         setupClose()
+        checkPlayerItemNumber()
     }
 
     private func convertVideosToPlayerQueue(videoUrls: [String]) -> [AVPlayerItem] {
@@ -146,5 +147,11 @@ class ControlPanelView: UIView {
             progressSlider.trailingAnchor.constraint(equalTo: totalTimeLabel.leadingAnchor, constant: -16),
             progressSlider.centerYAnchor.constraint(equalTo: currentTimeLabel.centerYAnchor)
         ])
+    }
+
+    private func checkPlayerItemNumber() {
+        if playerQueue.count <= 1 {
+            nextTrackButton.isHidden = true
+        }
     }
 }
