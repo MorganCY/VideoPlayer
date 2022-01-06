@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import AVFoundation
 
-class TimeChangingButton: UIButton {
+class ChangeTimeButton: UIButton {
 
     var avPlayer: AVPlayer?
     var isFastForwardButton: Bool
@@ -33,7 +33,7 @@ class TimeChangingButton: UIButton {
         layoutPosition()
     }
 
-    @objc func handleFastForward(_ sender: UIButton) {
+    @objc private func handleFastForward(_ sender: UIButton) {
         guard let currentTime = avPlayer?.currentTime().seconds else { return }
         var fastForwardedTime: CMTime?
         fastForwardedTime = CMTime(seconds: currentTime + 10, preferredTimescale: 6000)
@@ -42,7 +42,7 @@ class TimeChangingButton: UIButton {
         avPlayer?.seek(to: fastForwardedTime)
     }
 
-    @objc func handleRewind(_ sender: UIButton) {
+    @objc private func handleRewind(_ sender: UIButton) {
 
         guard let currentTime = avPlayer?.currentTime().seconds else { return }
         var fastForwardedTime: CMTime?

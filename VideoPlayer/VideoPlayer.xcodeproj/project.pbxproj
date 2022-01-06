@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C43BD402785DE67002CCE98 /* TrackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43BD3F2785DE67002CCE98 /* TrackButton.swift */; };
+		5C43BD422786D659002CCE98 /* ControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43BD412786D659002CCE98 /* ControlPanelView.swift */; };
 		5C96E9342782FB9D00F71A7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9332782FB9D00F71A7A /* AppDelegate.swift */; };
 		5C96E9362782FB9D00F71A7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9352782FB9D00F71A7A /* SceneDelegate.swift */; };
 		5C96E9382782FB9D00F71A7A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9372782FB9D00F71A7A /* HomeViewController.swift */; };
@@ -20,11 +22,13 @@
 		5C96E96C278407AA00F71A7A /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E96B278407AA00F71A7A /* PlayPauseButton.swift */; };
 		5C96E96E2784215D00F71A7A /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E96D2784215D00F71A7A /* CloseButton.swift */; };
 		5C96E9702784410600F71A7A /* VideoNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E96F2784410600F71A7A /* VideoNameLabel.swift */; };
-		5C96E9732784487A00F71A7A /* TimeChangingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9722784487A00F71A7A /* TimeChangingButton.swift */; };
+		5C96E9732784487A00F71A7A /* ChangeTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9722784487A00F71A7A /* ChangeTimeButton.swift */; };
 		5C96E97527844BE200F71A7A /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E97427844BE200F71A7A /* UIScreen+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C43BD3F2785DE67002CCE98 /* TrackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackButton.swift; sourceTree = "<group>"; };
+		5C43BD412786D659002CCE98 /* ControlPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelView.swift; sourceTree = "<group>"; };
 		5C96E9302782FB9D00F71A7A /* VideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C96E9332782FB9D00F71A7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C96E9352782FB9D00F71A7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +44,7 @@
 		5C96E96B278407AA00F71A7A /* PlayPauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPauseButton.swift; sourceTree = "<group>"; };
 		5C96E96D2784215D00F71A7A /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		5C96E96F2784410600F71A7A /* VideoNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNameLabel.swift; sourceTree = "<group>"; };
-		5C96E9722784487A00F71A7A /* TimeChangingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeChangingButton.swift; sourceTree = "<group>"; };
+		5C96E9722784487A00F71A7A /* ChangeTimeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTimeButton.swift; sourceTree = "<group>"; };
 		5C96E97427844BE200F71A7A /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				5C96E9712784424000F71A7A /* PlayerControls */,
+				5C43BD412786D659002CCE98 /* ControlPanelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,7 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				5C96E96B278407AA00F71A7A /* PlayPauseButton.swift */,
-				5C96E9722784487A00F71A7A /* TimeChangingButton.swift */,
+				5C96E9722784487A00F71A7A /* ChangeTimeButton.swift */,
+				5C43BD3F2785DE67002CCE98 /* TrackButton.swift */,
 				5C96E96D2784215D00F71A7A /* CloseButton.swift */,
 				5C96E96F2784410600F71A7A /* VideoNameLabel.swift */,
 			);
@@ -218,13 +224,15 @@
 				5C96E9382782FB9D00F71A7A /* HomeViewController.swift in Sources */,
 				5C96E9702784410600F71A7A /* VideoNameLabel.swift in Sources */,
 				5C96E9682783232D00F71A7A /* VideoViewController.swift in Sources */,
+				5C43BD422786D659002CCE98 /* ControlPanelView.swift in Sources */,
 				5C96E959278301C000F71A7A /* Video.swift in Sources */,
 				5C96E9342782FB9D00F71A7A /* AppDelegate.swift in Sources */,
 				5C96E9492782FCA100F71A7A /* UIView+Extension.swift in Sources */,
 				5C96E9612783037500F71A7A /* UIImage+Extension.swift in Sources */,
 				5C96E9362782FB9D00F71A7A /* SceneDelegate.swift in Sources */,
+				5C43BD402785DE67002CCE98 /* TrackButton.swift in Sources */,
 				5C96E963278303C700F71A7A /* VideoResource.swift in Sources */,
-				5C96E9732784487A00F71A7A /* TimeChangingButton.swift in Sources */,
+				5C96E9732784487A00F71A7A /* ChangeTimeButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

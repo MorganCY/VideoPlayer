@@ -15,10 +15,7 @@ class VideoViewController: UIViewController {
     // MARK: - Properties
     var videoQueue: [Video]
     var player: AVPlayer?
-    let playPauseButton = PlayPauseButton()
-    let fastForwardButton = TimeChangingButton(fastForward: true)
-    let rewindButton = TimeChangingButton(fastForward: false)
-    let dimmingView = UIView()
+    var controlPanel: ControlPanelView?
 
     // Limit orientation to landscape only
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -40,7 +37,6 @@ class VideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPlayer(videoPath: videoQueue[0].url)
-        setupControlPanel()
         view.backgroundColor = .black
     }
 
@@ -65,37 +61,25 @@ class VideoViewController: UIViewController {
 
         addChild(playerViewController)
         playerViewController.didMove(toParent: self)
-        playPauseButton.avPlayer = player
-        fastForwardButton.avPlayer = player
-        rewindButton.avPlayer = player
-    }
 
-    func setupControlPanel() {
-        let videoNameLabel = VideoNameLabel(text: videoQueue[0].name)
-        let closeButton = CloseButton()
-        let controls = [videoNameLabel, closeButton, playPauseButton, fastForwardButton, rewindButton]
+        controlPanel = ControlPanelView(frame: view.frame, player: player, videoQueue: videoQueue)
 
-        view.stickSubView(dimmingView, toSafe: false)
-        dimmingView.isHidden = true
-        dimmingView.backgroundColor = .black.withAlphaComponent(0.5)
+        guard let controlPanel = controlPanel else {
+            return
+        }
 
-        controls.forEach { dimmingView.addSubview($0) }
+        view.stickSubView(controlPanel, toSafe: true)
+        controlPanel.isHidden = true
 
-        playPauseButton.setup()
-        closeButton.setup()
-        videoNameLabel.layoutPosition()
-        fastForwardButton.setup()
-        rewindButton.setup()
+        controlPanel.closeView = { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
 
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
         view.addGestureRecognizer(gesture)
-        closeButton.closeView = { [weak self] in
-            self?.dismiss(animated: true, completion: nil)
-            self?.player?.replaceCurrentItem(with: nil)
-        }
     }
 
     @objc func tapped(_ sender: UITapGestureRecognizer) {
-        dimmingView.isHidden.toggle()
+        controlPanel?.isHidden.toggle()
     }
 }

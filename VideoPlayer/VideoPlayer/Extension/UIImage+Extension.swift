@@ -17,6 +17,8 @@ enum ImageAsset: String {
     case fastForward = "fastForwardButton"
     case rewind = "rewindButton"
     case close = "close"
+    case next = "nextTrack"
+    case previous = "previousTrack"
 }
 
 extension UIImage {
