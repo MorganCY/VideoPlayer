@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C2B911A27870D1200D37143 /* ProgressSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B911927870D1200D37143 /* ProgressSlider.swift */; };
 		5C43BD402785DE67002CCE98 /* TrackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43BD3F2785DE67002CCE98 /* TrackButton.swift */; };
 		5C43BD422786D659002CCE98 /* ControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43BD412786D659002CCE98 /* ControlPanelView.swift */; };
 		5C96E9342782FB9D00F71A7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9332782FB9D00F71A7A /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C2B911927870D1200D37143 /* ProgressSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSlider.swift; sourceTree = "<group>"; };
 		5C43BD3F2785DE67002CCE98 /* TrackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackButton.swift; sourceTree = "<group>"; };
 		5C43BD412786D659002CCE98 /* ControlPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelView.swift; sourceTree = "<group>"; };
 		5C96E9302782FB9D00F71A7A /* VideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 				5C96E96B278407AA00F71A7A /* PlayPauseButton.swift */,
 				5C96E9722784487A00F71A7A /* ChangeTimeButton.swift */,
 				5C43BD3F2785DE67002CCE98 /* TrackButton.swift */,
+				5C2B911927870D1200D37143 /* ProgressSlider.swift */,
 				5C96E96D2784215D00F71A7A /* CloseButton.swift */,
 				5C96E96F2784410600F71A7A /* VideoNameLabel.swift */,
 			);
@@ -225,6 +228,7 @@
 				5C96E9702784410600F71A7A /* VideoNameLabel.swift in Sources */,
 				5C96E9682783232D00F71A7A /* VideoViewController.swift in Sources */,
 				5C43BD422786D659002CCE98 /* ControlPanelView.swift in Sources */,
+				5C2B911A27870D1200D37143 /* ProgressSlider.swift in Sources */,
 				5C96E959278301C000F71A7A /* Video.swift in Sources */,
 				5C96E9342782FB9D00F71A7A /* AppDelegate.swift in Sources */,
 				5C96E9492782FCA100F71A7A /* UIView+Extension.swift in Sources */,

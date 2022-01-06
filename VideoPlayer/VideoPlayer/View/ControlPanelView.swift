@@ -19,6 +19,7 @@ class ControlPanelView: UIView {
     private let fastForwardButton = ChangeTimeButton(fastForward: true)
     private let rewindButton = ChangeTimeButton(fastForward: false)
     private let nextTrackButton = TrackButton()
+    private let progressSlider = ProgressSlider()
     private var videoNameLabel = VideoNameLabel(text: "")
     private let closeButton = CloseButton()
     var closeView: (() -> Void)?
@@ -31,7 +32,7 @@ class ControlPanelView: UIView {
         self.init(frame: frame)
         self.player = player
         self.videos = videoQueue
-        setupControls()
+        setup()
         backgroundColor = .black.withAlphaComponent(0.5)
     }
 
@@ -39,10 +40,10 @@ class ControlPanelView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupControls() {
+    private func setup() {
         addControls()
-        setupControl()
         setupPlayer()
+        setupControls()
         setupPlayerQueue()
         setupClose()
     }
@@ -62,18 +63,9 @@ class ControlPanelView: UIView {
         addSubview(fastForwardButton)
         addSubview(rewindButton)
         addSubview(nextTrackButton)
+        addSubview(progressSlider)
         addSubview(videoNameLabel)
         addSubview(closeButton)
-    }
-
-    private func setupControl() {
-        videoNameLabel = VideoNameLabel(text: videos?.first?.name ?? "")
-        playPauseButton.setup()
-        fastForwardButton.setup()
-        rewindButton.setup()
-        nextTrackButton.setup()
-        closeButton.setup()
-        videoNameLabel.layoutPosition()
     }
 
     private func setupPlayer() {
@@ -81,6 +73,18 @@ class ControlPanelView: UIView {
         fastForwardButton.player = player
         rewindButton.player = player
         nextTrackButton.player = player
+        progressSlider.player = player
+    }
+
+    private func setupControls() {
+        playPauseButton.setup()
+        fastForwardButton.setup()
+        rewindButton.setup()
+        nextTrackButton.setup()
+        progressSlider.setup()
+        closeButton.setup()
+        videoNameLabel = VideoNameLabel(text: videos?.first?.name ?? "")
+        videoNameLabel.layoutPosition()
     }
 
     private func setupPlayerQueue() {
