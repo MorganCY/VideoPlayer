@@ -25,6 +25,10 @@ class ListViewController: UIViewController {
         return .portrait
     }
 
+    override var shouldAutorotate: Bool {
+        return true
+    }
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()

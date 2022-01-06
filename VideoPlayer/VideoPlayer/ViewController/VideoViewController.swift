@@ -24,6 +24,10 @@ class VideoViewController: UIViewController {
         return .landscape
     }
 
+    override var shouldAutorotate: Bool {
+        return true
+    }
+
     // MARK: - Initializer
     // Designated initializer making sure there's a video passed in when being instantiated
     init(videos: [Video]) {
@@ -48,6 +52,11 @@ class VideoViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         playerLayer?.frame = view.safeAreaLayoutGuide.layoutFrame
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIDevice.current.setValue(Int(UIInterfaceOrientation.portrait.rawValue), forKey: "orientation")
     }
 
     // MARK: - Function

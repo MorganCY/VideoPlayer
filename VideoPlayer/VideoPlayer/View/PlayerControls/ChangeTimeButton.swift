@@ -71,9 +71,9 @@ class ChangeTimeButton: UIButton {
         ])
 
         if isFastForwardButton {
-            centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: UIScreen.width / 5).isActive = true
+            centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: UIScreen.width / 4).isActive = true
         } else {
-            centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: -(UIScreen.width / 5)).isActive = true
+            centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: -(UIScreen.width / 4)).isActive = true
         }
     }
 }

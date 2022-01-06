@@ -18,7 +18,7 @@ class ControlPanelView: UIView {
     private let playPauseButton = PlayPauseButton()
     private let fastForwardButton = ChangeTimeButton(fastForward: true)
     private let rewindButton = ChangeTimeButton(fastForward: false)
-    private let nextTrackButton = TrackButton()
+    private let nextTrackButton = NextTrackButton()
     private let progressSlider = ProgressSlider()
     private let currentTimeLabel = CurrentTimeLabel()
     private let totalTimeLabel = TotalTimeLabel()
@@ -138,7 +138,7 @@ class ControlPanelView: UIView {
         progressSlider.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            currentTimeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32),
+            currentTimeLabel.bottomAnchor.constraint(equalTo: nextTrackButton.topAnchor, constant: -12),
             currentTimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             totalTimeLabel.bottomAnchor.constraint(equalTo: currentTimeLabel.bottomAnchor),
             totalTimeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import AVFoundation
 
-class TrackButton: UIButton {
+class NextTrackButton: UIButton {
 
     var player: AVQueuePlayer?
 
@@ -39,10 +39,10 @@ class TrackButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.05),
-            heightAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.05),
-            centerYAnchor.constraint(equalTo: superview.centerYAnchor),
-            centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: UIScreen.width / 3)
+            widthAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.03),
+            heightAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.03),
+            centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: -32),
+            bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }
 }
