@@ -11,14 +11,14 @@ import AVFoundation
 
 class ControlPanelView: UIView {
 
-    private var player: AVPlayer?
-    private var videoQueue: [Video]?
+    private var player: AVQueuePlayer?
+    private var videos: [Video]?
+    private var playerQueue: [AVPlayerItem] = []
 
     private let playPauseButton = PlayPauseButton()
     private let fastForwardButton = ChangeTimeButton(fastForward: true)
     private let rewindButton = ChangeTimeButton(fastForward: false)
-    private let nextTrackButton = TrackButton(nextTrack: true)
-    private let previousTrackButton = TrackButton(nextTrack: false)
+    private let nextTrackButton = TrackButton()
     private var videoNameLabel = VideoNameLabel(text: "")
     private let closeButton = CloseButton()
     var closeView: (() -> Void)?
@@ -27,10 +27,10 @@ class ControlPanelView: UIView {
         super.init(frame: frame)
     }
 
-    convenience init(frame: CGRect, player: AVPlayer?, videoQueue: [Video]?) {
+    convenience init(frame: CGRect, player: AVQueuePlayer?, videoQueue: [Video]?) {
         self.init(frame: frame)
         self.player = player
-        self.videoQueue = videoQueue
+        self.videos = videoQueue
         setupControls()
         backgroundColor = .black.withAlphaComponent(0.5)
     }
@@ -43,9 +43,18 @@ class ControlPanelView: UIView {
         addControls()
         setupControl()
         setupPlayer()
-        setupQueue()
-        updateTrack()
+        setupPlayerQueue()
         setupClose()
+    }
+
+    private func convertVideosToPlayerQueue(videoUrls: [String]) -> [AVPlayerItem] {
+        var playerQueue: [AVPlayerItem] = []
+        videoUrls.forEach {
+            guard let url = URL(string: $0) else { return }
+            let item = AVPlayerItem(url: url)
+            playerQueue.append(item)
+        }
+        return playerQueue
     }
 
     private func addControls() {
@@ -53,42 +62,42 @@ class ControlPanelView: UIView {
         addSubview(fastForwardButton)
         addSubview(rewindButton)
         addSubview(nextTrackButton)
-        addSubview(previousTrackButton)
         addSubview(videoNameLabel)
         addSubview(closeButton)
     }
 
     private func setupControl() {
-        videoNameLabel = VideoNameLabel(text: videoQueue?.first?.name ?? "")
+        videoNameLabel = VideoNameLabel(text: videos?.first?.name ?? "")
         playPauseButton.setup()
         fastForwardButton.setup()
         rewindButton.setup()
         nextTrackButton.setup()
-        previousTrackButton.setup()
         closeButton.setup()
         videoNameLabel.layoutPosition()
     }
 
     private func setupPlayer() {
-        playPauseButton.avPlayer = player
-        fastForwardButton.avPlayer = player
-        rewindButton.avPlayer = player
-        nextTrackButton.avPlayer = player
-        previousTrackButton.avPlayer = player
+        playPauseButton.player = player
+        fastForwardButton.player = player
+        rewindButton.player = player
+        nextTrackButton.player = player
     }
 
-    private func setupQueue() {
-        nextTrackButton.videoQueue = videoQueue
-        previousTrackButton.videoQueue = videoQueue
-    }
+    private func setupPlayerQueue() {
+        guard let videos = videos else {
+            return
+        }
 
-    private func updateTrack() {
-        nextTrackButton.updateCurrentTrack = { [weak self] track in
-            self?.previousTrackButton.currentTrack = track
-        }
-        previousTrackButton.updateCurrentTrack = { [weak self] track in
-            self?.nextTrackButton.currentTrack = track
-        }
+        let videoUrls: [String] = {
+            var videoUrls: [String] = []
+            videos.forEach {
+                videoUrls.append($0.url)
+            }
+            return videoUrls
+        }()
+
+        playerQueue = convertVideosToPlayerQueue(videoUrls: videoUrls)
+        player = AVQueuePlayer(items: playerQueue)
     }
 
     private func setupClose() {

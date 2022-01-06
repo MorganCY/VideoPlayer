@@ -13,9 +13,11 @@ import AVFoundation
 class VideoViewController: UIViewController {
 
     // MARK: - Properties
-    var videoQueue: [Video]
-    var player: AVPlayer?
+    var videos: [Video]
+    var player: AVQueuePlayer?
+    var playerLayer: AVPlayerLayer?
     var controlPanel: ControlPanelView?
+    var playerQueue: [AVPlayerItem] = []
 
     // Limit orientation to landscape only
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -24,8 +26,8 @@ class VideoViewController: UIViewController {
 
     // MARK: - Initializer
     // Designated initializer making sure there's a video passed in when being instantiated
-    init(videoQueue: [Video]) {
-        self.videoQueue = videoQueue
+    init(videos: [Video]) {
+        self.videos = videos
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -36,50 +38,67 @@ class VideoViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPlayer(videoPath: videoQueue[0].url)
         view.backgroundColor = .black
+        setupPlayerQueue()
+        setupPlayer(playQueue: playerQueue)
+        setupControlPanel()
+        handleTapOnView()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        playerLayer?.frame = view.safeAreaLayoutGuide.layoutFrame
     }
 
     // MARK: - Function
-    func setupPlayer(videoPath: String) {
-        guard let url = URL(string: videoPath) else { return }
-
-        let asset = AVAsset(url: url)
-        let item = AVPlayerItem(asset: asset)
-
-        player = AVPlayer(playerItem: item)
-
-        /// Play the video automatically
+    private func setupPlayer(playQueue: [AVPlayerItem]) {
+        player = AVQueuePlayer(items: playerQueue)
         player?.rate = 1
+        playerLayer = AVPlayerLayer(player: player)
+        view.layer.addSublayer(playerLayer!)
+    }
 
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        view.stickSubView(playerViewController.view, toSafe: true)
-
-        /// Hide native controls of AVPlayer
-        playerViewController.showsPlaybackControls = false
-
-        addChild(playerViewController)
-        playerViewController.didMove(toParent: self)
-
-        controlPanel = ControlPanelView(frame: view.frame, player: player, videoQueue: videoQueue)
+    private func setupControlPanel() {
+        controlPanel = ControlPanelView(frame: view.frame, player: player, videoQueue: videos)
 
         guard let controlPanel = controlPanel else {
             return
         }
-
-        view.stickSubView(controlPanel, toSafe: true)
+        view.stickSubView(controlPanel, toSafe: false)
         controlPanel.isHidden = true
-
         controlPanel.closeView = { [weak self] in
             self?.dismiss(animated: true, completion: nil)
         }
+    }
 
+    private func setupPlayerQueue() {
+        let videoUrls: [String] = {
+            var videoUrls: [String] = []
+            videos.forEach {
+                videoUrls.append($0.url)
+            }
+            return videoUrls
+        }()
+
+        playerQueue = convertVideosToPlayerQueue(videoUrls: videoUrls)
+    }
+
+    private func convertVideosToPlayerQueue(videoUrls: [String]) -> [AVPlayerItem] {
+        var playerQueue: [AVPlayerItem] = []
+        videoUrls.forEach {
+            guard let url = URL(string: $0) else { return }
+            let item = AVPlayerItem(url: url)
+            playerQueue.append(item)
+        }
+        return playerQueue
+    }
+
+    private func handleTapOnView() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
         view.addGestureRecognizer(gesture)
     }
 
-    @objc func tapped(_ sender: UITapGestureRecognizer) {
+    @objc private func tapped(_ sender: UITapGestureRecognizer) {
         controlPanel?.isHidden.toggle()
     }
 }

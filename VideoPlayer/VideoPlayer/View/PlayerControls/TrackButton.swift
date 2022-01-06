@@ -11,57 +11,27 @@ import AVFoundation
 
 class TrackButton: UIButton {
 
-    var avPlayer: AVPlayer?
-    var isNextTrackButton: Bool
-    var currentTrack = 0
-    var videoQueue: [Video]?
-    var updateCurrentTrack: ((Int) -> Void)?
-
-    init(nextTrack isNextTrack: Bool) {
-        self.isNextTrackButton = isNextTrack
-        super.init(frame: .zero)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var player: AVQueuePlayer?
 
     func setup() {
-        if isNextTrackButton {
-            addTarget(self, action: #selector(handleNextTrack(_:)), for: .touchUpInside)
-        } else {
-            addTarget(self, action: #selector(handlePreviousTrack(_:)), for: .touchUpInside)
-        }
+        addTarget(self, action: #selector(handleNextTrack(_:)), for: .touchUpInside)
         setBackgroundImage()
         layoutPosition()
     }
 
     @objc private func handleNextTrack(_ sender: UIButton) {
-        currentTrack += 1
-        updateCurrentTrack?(currentTrack)
-        guard let urlString = videoQueue?[currentTrack].url else { return }
-        guard let url = URL(string: urlString) else { return }
-        let asset = AVAsset(url: url)
-        let item = AVPlayerItem(asset: asset)
-        avPlayer?.replaceCurrentItem(with: item)
+        player?.advanceToNextItem()
+        checkCurrentItem()
     }
 
-    @objc private func handlePreviousTrack(_ sender: UIButton) {
-        currentTrack -= 1
-        updateCurrentTrack?(currentTrack)
-        guard let urlString = videoQueue?[currentTrack].url else { return }
-        guard let url = URL(string: urlString) else { return }
-        let asset = AVAsset(url: url)
-        let item = AVPlayerItem(asset: asset)
-        avPlayer?.replaceCurrentItem(with: item)
+    private func checkCurrentItem() {
+        if player?.currentItem == player?.items().last {
+            isHidden = true
+        }
     }
 
     private func setBackgroundImage() {
-        if isNextTrackButton {
-            setBackgroundImage(UIImage.asset(.next), for: .normal)
-        } else {
-            setBackgroundImage(UIImage.asset(.previous), for: .normal)
-        }
+        setBackgroundImage(UIImage.asset(.next), for: .normal)
     }
 
     private func layoutPosition() {
@@ -71,13 +41,8 @@ class TrackButton: UIButton {
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.05),
             heightAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.05),
-            centerYAnchor.constraint(equalTo: superview.centerYAnchor)
+            centerYAnchor.constraint(equalTo: superview.centerYAnchor),
+            centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: UIScreen.width / 3)
         ])
-
-        if isNextTrackButton {
-            centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: UIScreen.width / 3).isActive = true
-        } else {
-            centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: -(UIScreen.width / 3)).isActive = true
-        }
     }
 }

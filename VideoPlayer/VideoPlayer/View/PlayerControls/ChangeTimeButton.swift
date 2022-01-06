@@ -11,7 +11,7 @@ import AVFoundation
 
 class ChangeTimeButton: UIButton {
 
-    var avPlayer: AVPlayer?
+    var player: AVQueuePlayer?
     var isFastForwardButton: Bool
 
     init(fastForward isFastForward: Bool) {
@@ -34,22 +34,22 @@ class ChangeTimeButton: UIButton {
     }
 
     @objc private func handleFastForward(_ sender: UIButton) {
-        guard let currentTime = avPlayer?.currentTime().seconds else { return }
+        guard let currentTime = player?.currentTime().seconds else { return }
         var fastForwardedTime: CMTime?
         fastForwardedTime = CMTime(seconds: currentTime + 10, preferredTimescale: 6000)
 
         guard let fastForwardedTime = fastForwardedTime else { return }
-        avPlayer?.seek(to: fastForwardedTime)
+        player?.seek(to: fastForwardedTime)
     }
 
     @objc private func handleRewind(_ sender: UIButton) {
 
-        guard let currentTime = avPlayer?.currentTime().seconds else { return }
+        guard let currentTime = player?.currentTime().seconds else { return }
         var fastForwardedTime: CMTime?
         fastForwardedTime = CMTime(seconds: currentTime - 10, preferredTimescale: 6000)
 
         guard let fastForwardedTime = fastForwardedTime else { return }
-        avPlayer?.seek(to: fastForwardedTime)
+        player?.seek(to: fastForwardedTime)
     }
 
     private func setBackgroundImage() {

@@ -18,7 +18,6 @@ enum ImageAsset: String {
     case rewind = "rewindButton"
     case close = "close"
     case next = "nextTrack"
-    case previous = "previousTrack"
 }
 
 extension UIImage {

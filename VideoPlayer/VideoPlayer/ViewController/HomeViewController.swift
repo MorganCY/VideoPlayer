@@ -47,7 +47,7 @@ class HomeViewController: UIViewController {
     }
 
     @objc func tapPreviewImageView(_ sender: UIGestureRecognizer) {
-        let videoVC = VideoViewController(videoQueue: videos)
+        let videoVC = VideoViewController(videos: videos)
         videoVC.modalPresentationStyle = .overFullScreen
         present(videoVC, animated: true)
     }

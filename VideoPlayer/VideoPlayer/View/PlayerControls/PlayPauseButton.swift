@@ -12,12 +12,12 @@ import AVKit
 
 class PlayPauseButton: UIButton {
 
-    var avPlayer: AVPlayer?
+    var player: AVQueuePlayer?
 
     // Define the video is playing or being paused
     private var isPlaying: Bool {
         /// Rate == 0 refers to pause while 1 plays the video
-        return avPlayer?.rate != 0 && avPlayer?.error == nil
+        return player?.rate != 0 && player?.error == nil
     }
     // Rate of avPlayer for observation purpose
     private var kvoRateContext = 0
@@ -40,7 +40,7 @@ class PlayPauseButton: UIButton {
 
     // Observe the current rate of avPlayer
     private func addObservers() {
-        avPlayer?.addObserver(self, forKeyPath: "rate", options: .new, context: &kvoRateContext)
+        player?.addObserver(self, forKeyPath: "rate", options: .new, context: &kvoRateContext)
     }
 
     @objc private func tapped(_ sender: UIButton) {
@@ -50,9 +50,9 @@ class PlayPauseButton: UIButton {
 
     private func updateStatus() {
         if isPlaying {
-            avPlayer?.pause()
+            player?.pause()
         } else {
-            avPlayer?.play()
+            player?.play()
         }
     }
 
