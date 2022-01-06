@@ -18,6 +18,7 @@ enum ImageAsset: String {
     case rewind = "rewindButton"
     case close = "close"
     case next = "nextTrack"
+    case menu = "menuButton"
 }
 
 extension UIImage {

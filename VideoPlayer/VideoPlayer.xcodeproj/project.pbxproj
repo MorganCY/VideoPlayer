@@ -11,6 +11,7 @@
 		5C2B911C27871D1600D37143 /* CurrentTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B911B27871D1600D37143 /* CurrentTimeLabel.swift */; };
 		5C2B911E278722BC00D37143 /* TotalTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B911D278722BC00D37143 /* TotalTimeLabel.swift */; };
 		5C2B912027872F5800D37143 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B911F27872F5800D37143 /* ListTableViewCell.swift */; };
+		5C2B9124278749B900D37143 /* SubtitleAudioMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B9123278749B900D37143 /* SubtitleAudioMenuButton.swift */; };
 		5C43BD402785DE67002CCE98 /* NextTrackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43BD3F2785DE67002CCE98 /* NextTrackButton.swift */; };
 		5C43BD422786D659002CCE98 /* ControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43BD412786D659002CCE98 /* ControlPanelView.swift */; };
 		5C96E9342782FB9D00F71A7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9332782FB9D00F71A7A /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 		5C2B911B27871D1600D37143 /* CurrentTimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeLabel.swift; sourceTree = "<group>"; };
 		5C2B911D278722BC00D37143 /* TotalTimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTimeLabel.swift; sourceTree = "<group>"; };
 		5C2B911F27872F5800D37143 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		5C2B9123278749B900D37143 /* SubtitleAudioMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleAudioMenuButton.swift; sourceTree = "<group>"; };
 		5C43BD3F2785DE67002CCE98 /* NextTrackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextTrackButton.swift; sourceTree = "<group>"; };
 		5C43BD412786D659002CCE98 /* ControlPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelView.swift; sourceTree = "<group>"; };
 		5C96E9302782FB9D00F71A7A /* VideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 				5C2B911D278722BC00D37143 /* TotalTimeLabel.swift */,
 				5C96E96D2784215D00F71A7A /* CloseButton.swift */,
 				5C96E96F2784410600F71A7A /* VideoNameLabel.swift */,
+				5C2B9123278749B900D37143 /* SubtitleAudioMenuButton.swift */,
 			);
 			path = PlayerControls;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				5C96E9492782FCA100F71A7A /* UIView+Extension.swift in Sources */,
 				5C96E9612783037500F71A7A /* UIImage+Extension.swift in Sources */,
 				5C96E9362782FB9D00F71A7A /* SceneDelegate.swift in Sources */,
+				5C2B9124278749B900D37143 /* SubtitleAudioMenuButton.swift in Sources */,
 				5C43BD402785DE67002CCE98 /* NextTrackButton.swift in Sources */,
 				5C96E963278303C700F71A7A /* VideoResource.swift in Sources */,
 				5C2B911E278722BC00D37143 /* TotalTimeLabel.swift in Sources */,

@@ -19,6 +19,7 @@ class ControlPanelView: UIView {
     private let fastForwardButton = ChangeTimeButton(fastForward: true)
     private let rewindButton = ChangeTimeButton(fastForward: false)
     private let nextTrackButton = NextTrackButton()
+    private let subtitleAudioMenuButton = SubtitleAudioButton()
     private let progressSlider = ProgressSlider()
     private let currentTimeLabel = CurrentTimeLabel()
     private let totalTimeLabel = TotalTimeLabel()
@@ -26,6 +27,18 @@ class ControlPanelView: UIView {
     private let closeButton = CloseButton()
     var closeView: (() -> Void)?
     private var playerItemObserver: NSKeyValueObservation?
+    private let audioMenuTableView = UITableView()
+    private let subtitleMenuTableView = UITableView()
+    private let closeMenuButton = CloseButton()
+    private var audioGroup: AVMediaSelectionGroup?
+    private var subtitleGroup: AVMediaSelectionGroup?
+    private var audioSelectedIndex = 0
+    private var subtitleSelectedIndex = 0
+    private var isMenuOpen = false {
+        didSet {
+            checkIfHideControls()
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,11 +84,13 @@ class ControlPanelView: UIView {
         addSubview(fastForwardButton)
         addSubview(rewindButton)
         addSubview(nextTrackButton)
+        addSubview(subtitleAudioMenuButton)
         addSubview(progressSlider)
         addSubview(totalTimeLabel)
         addSubview(currentTimeLabel)
         addSubview(videoNameLabel)
         addSubview(closeButton)
+        addSubview(closeMenuButton)
     }
 
     private func setupPlayer() {
@@ -93,14 +108,19 @@ class ControlPanelView: UIView {
         fastForwardButton.setup()
         rewindButton.setup()
         nextTrackButton.setup()
+        subtitleAudioMenuButton.setup()
         progressSlider.setup()
         currentTimeLabel.setup()
         totalTimeLabel.setup()
         closeButton.setup()
+        closeMenuButton.setup()
         videoNameLabel = VideoNameLabel(text: videos?.first?.name ?? "")
         videoNameLabel.layoutPosition()
         layoutProgressBar()
         addPlayerItemObserver()
+        tapSubtitleAudioMenuButton()
+        tapCloseMenuButton()
+        setupMenuContent()
     }
 
     private func setupPlayerQueue() {
@@ -118,6 +138,39 @@ class ControlPanelView: UIView {
 
         playerQueue = convertVideosToPlayerQueue(videoUrls: videoUrls)
         player = AVQueuePlayer(items: playerQueue)
+    }
+
+    private func setupMenuContent() {
+        subtitleMenuTableView.isHidden = !isMenuOpen
+        audioMenuTableView.isHidden = !isMenuOpen
+        closeMenuButton.isHidden = !isMenuOpen
+    }
+
+    private func tapSubtitleAudioMenuButton() {
+        subtitleAudioMenuButton.openMenu = { [weak self] in
+            self?.isMenuOpen = true
+        }
+    }
+
+    private func tapCloseMenuButton() {
+        closeMenuButton.closeView = { [weak self] in
+            self?.isMenuOpen = false
+        }
+    }
+
+    private func checkIfHideControls() {
+        subtitleMenuTableView.isHidden = !isMenuOpen
+        audioMenuTableView.isHidden = !isMenuOpen
+        closeMenuButton.isHidden = !isMenuOpen
+        playPauseButton.isHidden = isMenuOpen
+        rewindButton.isHidden = isMenuOpen
+        fastForwardButton.isHidden = isMenuOpen
+        nextTrackButton.isHidden = isMenuOpen
+        subtitleAudioMenuButton.isHidden = isMenuOpen
+        progressSlider.isHidden = isMenuOpen
+        currentTimeLabel.isHidden = isMenuOpen
+        totalTimeLabel.isHidden = isMenuOpen
+        closeButton.isHidden = isMenuOpen
     }
 
     private func setupClose() {
