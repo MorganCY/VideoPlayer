@@ -12,10 +12,10 @@ class CloseButton: UIButton {
 
     var closeView: (() -> Void)?
 
-    func setup() {
+    func setup(image: ImageAsset) {
         addTarget(self, action: #selector(tapped(_:)), for: .touchUpInside)
         layoutPosition()
-        setupBackgroundImage(.close)
+        setupBackgroundImage(image)
     }
 
     @objc func tapped(_ sender: UIButton) {
@@ -31,8 +31,8 @@ class CloseButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.03),
-            heightAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.03),
+            widthAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.04),
+            heightAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.04),
             topAnchor.constraint(equalTo: superview.topAnchor, constant: 32),
             trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -32)
         ])

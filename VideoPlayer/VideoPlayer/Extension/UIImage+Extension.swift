@@ -16,7 +16,8 @@ enum ImageAsset: String {
     case pause = "pauseButton"
     case fastForward = "fastForwardButton"
     case rewind = "rewindButton"
-    case close = "close"
+    case closePanel = "closePanelButton"
+    case closeMenu = "closeMenuButton"
     case next = "nextTrack"
     case menu = "menuButton"
 }

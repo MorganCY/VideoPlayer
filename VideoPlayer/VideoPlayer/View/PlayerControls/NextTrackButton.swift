@@ -42,7 +42,7 @@ class NextTrackButton: UIButton {
             widthAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.03),
             heightAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.03),
             centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: -32),
-            bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor, constant: -30)
         ])
     }
 }

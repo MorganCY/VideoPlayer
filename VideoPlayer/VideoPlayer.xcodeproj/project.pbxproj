@@ -12,6 +12,11 @@
 		5C2B911E278722BC00D37143 /* TotalTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B911D278722BC00D37143 /* TotalTimeLabel.swift */; };
 		5C2B912027872F5800D37143 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B911F27872F5800D37143 /* ListTableViewCell.swift */; };
 		5C2B9124278749B900D37143 /* SubtitleAudioMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B9123278749B900D37143 /* SubtitleAudioMenuButton.swift */; };
+		5C2B91262787570200D37143 /* ControlPanelView+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B91252787570200D37143 /* ControlPanelView+Menu.swift */; };
+		5C38BC532787E516002EFDF4 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C38BC522787E516002EFDF4 /* MenuTableViewCell.swift */; };
+		5C38BC552787EF8A002EFDF4 /* MenuTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C38BC542787EF8A002EFDF4 /* MenuTableViewHeader.swift */; };
+		5C38BC572787F07E002EFDF4 /* MenuTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C38BC562787F07E002EFDF4 /* MenuTableViewHeader.xib */; };
+		5C38BC592787FDAA002EFDF4 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C38BC582787FDAA002EFDF4 /* UITableView+Extension.swift */; };
 		5C43BD402785DE67002CCE98 /* NextTrackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43BD3F2785DE67002CCE98 /* NextTrackButton.swift */; };
 		5C43BD422786D659002CCE98 /* ControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43BD412786D659002CCE98 /* ControlPanelView.swift */; };
 		5C96E9342782FB9D00F71A7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9332782FB9D00F71A7A /* AppDelegate.swift */; };
@@ -37,6 +42,11 @@
 		5C2B911D278722BC00D37143 /* TotalTimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTimeLabel.swift; sourceTree = "<group>"; };
 		5C2B911F27872F5800D37143 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		5C2B9123278749B900D37143 /* SubtitleAudioMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleAudioMenuButton.swift; sourceTree = "<group>"; };
+		5C2B91252787570200D37143 /* ControlPanelView+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControlPanelView+Menu.swift"; sourceTree = "<group>"; };
+		5C38BC522787E516002EFDF4 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		5C38BC542787EF8A002EFDF4 /* MenuTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewHeader.swift; sourceTree = "<group>"; };
+		5C38BC562787F07E002EFDF4 /* MenuTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewHeader.xib; sourceTree = "<group>"; };
+		5C38BC582787FDAA002EFDF4 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		5C43BD3F2785DE67002CCE98 /* NextTrackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextTrackButton.swift; sourceTree = "<group>"; };
 		5C43BD412786D659002CCE98 /* ControlPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelView.swift; sourceTree = "<group>"; };
 		5C96E9302782FB9D00F71A7A /* VideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +126,7 @@
 				5C96E9482782FCA100F71A7A /* UIView+Extension.swift */,
 				5C96E9602783037500F71A7A /* UIImage+Extension.swift */,
 				5C96E97427844BE200F71A7A /* UIScreen+Extension.swift */,
+				5C38BC582787FDAA002EFDF4 /* UITableView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -125,7 +136,11 @@
 			children = (
 				5C96E9712784424000F71A7A /* PlayerControls */,
 				5C43BD412786D659002CCE98 /* ControlPanelView.swift */,
+				5C2B91252787570200D37143 /* ControlPanelView+Menu.swift */,
 				5C2B911F27872F5800D37143 /* ListTableViewCell.swift */,
+				5C38BC522787E516002EFDF4 /* MenuTableViewCell.swift */,
+				5C38BC542787EF8A002EFDF4 /* MenuTableViewHeader.swift */,
+				5C38BC562787F07E002EFDF4 /* MenuTableViewHeader.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -153,12 +168,12 @@
 				5C96E96B278407AA00F71A7A /* PlayPauseButton.swift */,
 				5C96E9722784487A00F71A7A /* ChangeTimeButton.swift */,
 				5C43BD3F2785DE67002CCE98 /* NextTrackButton.swift */,
+				5C2B9123278749B900D37143 /* SubtitleAudioMenuButton.swift */,
 				5C2B911927870D1200D37143 /* ProgressSlider.swift */,
 				5C2B911B27871D1600D37143 /* CurrentTimeLabel.swift */,
 				5C2B911D278722BC00D37143 /* TotalTimeLabel.swift */,
 				5C96E96D2784215D00F71A7A /* CloseButton.swift */,
 				5C96E96F2784410600F71A7A /* VideoNameLabel.swift */,
-				5C2B9123278749B900D37143 /* SubtitleAudioMenuButton.swift */,
 			);
 			path = PlayerControls;
 			sourceTree = "<group>";
@@ -223,6 +238,7 @@
 			files = (
 				5C96E9402782FB9E00F71A7A /* LaunchScreen.storyboard in Resources */,
 				5C96E93D2782FB9E00F71A7A /* Assets.xcassets in Resources */,
+				5C38BC572787F07E002EFDF4 /* MenuTableViewHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C38BC552787EF8A002EFDF4 /* MenuTableViewHeader.swift in Sources */,
 				5C96E96E2784215D00F71A7A /* CloseButton.swift in Sources */,
 				5C2B911C27871D1600D37143 /* CurrentTimeLabel.swift in Sources */,
 				5C96E96C278407AA00F71A7A /* PlayPauseButton.swift in Sources */,
@@ -243,16 +260,19 @@
 				5C43BD422786D659002CCE98 /* ControlPanelView.swift in Sources */,
 				5C2B912027872F5800D37143 /* ListTableViewCell.swift in Sources */,
 				5C2B911A27870D1200D37143 /* ProgressSlider.swift in Sources */,
+				5C38BC532787E516002EFDF4 /* MenuTableViewCell.swift in Sources */,
 				5C96E959278301C000F71A7A /* Video.swift in Sources */,
 				5C96E9342782FB9D00F71A7A /* AppDelegate.swift in Sources */,
 				5C96E9492782FCA100F71A7A /* UIView+Extension.swift in Sources */,
 				5C96E9612783037500F71A7A /* UIImage+Extension.swift in Sources */,
+				5C2B91262787570200D37143 /* ControlPanelView+Menu.swift in Sources */,
 				5C96E9362782FB9D00F71A7A /* SceneDelegate.swift in Sources */,
 				5C2B9124278749B900D37143 /* SubtitleAudioMenuButton.swift in Sources */,
 				5C43BD402785DE67002CCE98 /* NextTrackButton.swift in Sources */,
 				5C96E963278303C700F71A7A /* VideoResource.swift in Sources */,
 				5C2B911E278722BC00D37143 /* TotalTimeLabel.swift in Sources */,
 				5C96E9732784487A00F71A7A /* ChangeTimeButton.swift in Sources */,
+				5C38BC592787FDAA002EFDF4 /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import UIKit
 import AVKit
 import AVFoundation
 
-class VideoViewController: UIViewController {
+class VideoViewController: UIViewController, UIGestureRecognizerDelegate {
 
     // MARK: - Properties
     var videos: [Video]
@@ -105,6 +105,9 @@ class VideoViewController: UIViewController {
     private func handleTapOnView() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
         view.addGestureRecognizer(gesture)
+        controlPanel?.gestureHandler = { isMenuOpen in
+            gesture.isEnabled = !isMenuOpen
+        }
     }
 
     @objc private func tapped(_ sender: UITapGestureRecognizer) {

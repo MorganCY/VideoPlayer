@@ -34,7 +34,7 @@ class SubtitleAudioButton: UIButton {
             widthAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.04),
             heightAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.04),
             centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: 32),
-            bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor, constant: -12)
+            bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor, constant: -24)
         ])
     }
 }
