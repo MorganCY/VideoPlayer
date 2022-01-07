@@ -54,17 +54,54 @@ class VideoViewController: UIViewController, UIGestureRecognizerDelegate {
         playerLayer?.frame = view.safeAreaLayoutGuide.layoutFrame
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        observeFirstItemEndPlaying()
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIDevice.current.setValue(Int(UIInterfaceOrientation.portrait.rawValue), forKey: "orientation")
     }
 
-    // MARK: - Function
+    // MARK: - Functions
     private func setupPlayer(playQueue: [AVPlayerItem]) {
         player = AVQueuePlayer(items: playerQueue)
         player?.rate = 1
         playerLayer = AVPlayerLayer(player: player)
         view.layer.addSublayer(playerLayer!)
+    }
+
+    private func observeFirstItemEndPlaying() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(playerHideNextTrack),
+            name: .AVPlayerItemDidPlayToEndTime,
+            object: player?.items().first
+        )
+    }
+
+    @objc private func playerHideNextTrack() {
+        controlPanel?.nextTrackButton.isHidden = true
+        NotificationCenter.default.removeObserver(
+            self,
+            name: .AVPlayerItemDidPlayToEndTime,
+            object: player?.items().last
+        )
+        observeLastItemEndPlaying()
+    }
+
+    private func observeLastItemEndPlaying() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(playerDidEndPlaying),
+            name: .AVPlayerItemDidPlayToEndTime,
+            object: player?.items().last
+        )
+    }
+
+    @objc private func playerDidEndPlaying() {
+        dismiss(animated: true, completion: nil)
     }
 
     private func setupControlPanel() {

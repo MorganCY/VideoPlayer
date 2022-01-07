@@ -35,7 +35,7 @@ class ListViewController: UIViewController {
         setupTableView()
     }
 
-    // MARK: - Function
+    // MARK: - Functions
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -47,7 +47,7 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        videos.count
+        1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +56,9 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         guard let listCell = cell as? ListTableViewCell else {
             return cell
         }
-        listCell.layoutCell(video: videos[indexPath.row])
+        if let video = videos.first {
+            listCell.layoutCell(video: video)
+        }
         return listCell
     }
 

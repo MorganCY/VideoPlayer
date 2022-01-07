@@ -48,13 +48,13 @@ class ControlPanelView: UIView {
     private let playPauseButton = PlayPauseButton()
     private let fastForwardButton = ChangeTimeButton(fastForward: true)
     private let rewindButton = ChangeTimeButton(fastForward: false)
-    private let nextTrackButton = NextTrackButton()
     private let subtitleAudioMenuButton = SubtitleAudioButton()
     private let progressSlider = ProgressSlider()
     private let currentTimeLabel = CurrentTimeLabel()
     private let totalTimeLabel = TotalTimeLabel()
     private var videoNameLabel = VideoNameLabel(text: "")
     private let closePanelButton = CloseButton()
+    let nextTrackButton = NextTrackButton()
     let closeMenuButton = CloseButton()
     let audioOptionMenu = UITableView()
     let subtitleOptionMenu = UITableView()
@@ -84,10 +84,6 @@ class ControlPanelView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    deinit {
-        print("Control panel was deallocated")
     }
 
     // MARK: - Functions
@@ -140,7 +136,7 @@ class ControlPanelView: UIView {
         }
     }
 
-    private func addPlayerItemObserver() {
+    private func setupTotalTimeLabel() {
         playerItemObserver = player?.observe(\.currentItem, options: [.new], changeHandler: { [weak self] player, _ in
             self?.totalTimeLabel.setup()
         })
@@ -196,11 +192,11 @@ class ControlPanelView: UIView {
         subtitleAudioMenuButton.setup()
         progressSlider.setup()
         currentTimeLabel.setup()
+        setupTotalTimeLabel()
         totalTimeLabel.setup()
         closePanelButton.setup(image: .closePanel)
         closeMenuButton.setup(image: .closeMenu)
         layoutProgressBar()
-        addPlayerItemObserver()
         tapSubtitleAudioMenuButton()
         tapClosePanelButton()
         tapCloseMenuButton()
