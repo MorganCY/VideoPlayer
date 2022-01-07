@@ -86,7 +86,7 @@ class VideoViewController: UIViewController, UIGestureRecognizerDelegate {
         NotificationCenter.default.removeObserver(
             self,
             name: .AVPlayerItemDidPlayToEndTime,
-            object: player?.items().last
+            object: player?.items().first
         )
         observeLastItemEndPlaying()
     }
@@ -102,6 +102,11 @@ class VideoViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @objc private func playerDidEndPlaying() {
         dismiss(animated: true, completion: nil)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: .AVPlayerItemDidPlayToEndTime,
+            object: player?.items().last
+        )
     }
 
     private func setupControlPanel() {
