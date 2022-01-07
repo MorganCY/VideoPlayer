@@ -128,10 +128,7 @@ class VideoViewController: UIViewController, UIGestureRecognizerDelegate {
 
     private func setupPlayerQueue() {
         let videoUrls: [String] = {
-            var videoUrls: [String] = []
-            videos.forEach {
-                videoUrls.append($0.url)
-            }
+            let videoUrls = videos.map { $0.url }
             return videoUrls
         }()
 
