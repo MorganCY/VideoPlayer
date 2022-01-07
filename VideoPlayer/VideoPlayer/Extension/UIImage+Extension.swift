@@ -10,8 +10,6 @@ import UIKit
 
 enum ImageAsset: String {
 
-    case firstVideo = "FirstVideo"
-    case secondVideo = "SecondVideo"
     case play = "playButton"
     case pause = "pauseButton"
     case fastForward = "fastForwardButton"

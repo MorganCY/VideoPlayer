@@ -10,7 +10,6 @@
 		5C2B911A27870D1200D37143 /* ProgressSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B911927870D1200D37143 /* ProgressSlider.swift */; };
 		5C2B911C27871D1600D37143 /* CurrentTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B911B27871D1600D37143 /* CurrentTimeLabel.swift */; };
 		5C2B911E278722BC00D37143 /* TotalTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B911D278722BC00D37143 /* TotalTimeLabel.swift */; };
-		5C2B912027872F5800D37143 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B911F27872F5800D37143 /* ListTableViewCell.swift */; };
 		5C2B9124278749B900D37143 /* SubtitleAudioMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B9123278749B900D37143 /* SubtitleAudioMenuButton.swift */; };
 		5C2B91262787570200D37143 /* ControlPanelView+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B91252787570200D37143 /* ControlPanelView+Menu.swift */; };
 		5C38BC532787E516002EFDF4 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C38BC522787E516002EFDF4 /* MenuTableViewCell.swift */; };
@@ -21,7 +20,7 @@
 		5C43BD422786D659002CCE98 /* ControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43BD412786D659002CCE98 /* ControlPanelView.swift */; };
 		5C96E9342782FB9D00F71A7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9332782FB9D00F71A7A /* AppDelegate.swift */; };
 		5C96E9362782FB9D00F71A7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9352782FB9D00F71A7A /* SceneDelegate.swift */; };
-		5C96E9382782FB9D00F71A7A /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9372782FB9D00F71A7A /* ListViewController.swift */; };
+		5C96E9382782FB9D00F71A7A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9372782FB9D00F71A7A /* HomeViewController.swift */; };
 		5C96E93D2782FB9E00F71A7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C96E93C2782FB9E00F71A7A /* Assets.xcassets */; };
 		5C96E9402782FB9E00F71A7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C96E93E2782FB9E00F71A7A /* LaunchScreen.storyboard */; };
 		5C96E9492782FCA100F71A7A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9482782FCA100F71A7A /* UIView+Extension.swift */; };
@@ -39,7 +38,6 @@
 		5C2B911927870D1200D37143 /* ProgressSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSlider.swift; sourceTree = "<group>"; };
 		5C2B911B27871D1600D37143 /* CurrentTimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeLabel.swift; sourceTree = "<group>"; };
 		5C2B911D278722BC00D37143 /* TotalTimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTimeLabel.swift; sourceTree = "<group>"; };
-		5C2B911F27872F5800D37143 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		5C2B9123278749B900D37143 /* SubtitleAudioMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleAudioMenuButton.swift; sourceTree = "<group>"; };
 		5C2B91252787570200D37143 /* ControlPanelView+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControlPanelView+Menu.swift"; sourceTree = "<group>"; };
 		5C38BC522787E516002EFDF4 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -51,7 +49,7 @@
 		5C96E9302782FB9D00F71A7A /* VideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C96E9332782FB9D00F71A7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C96E9352782FB9D00F71A7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5C96E9372782FB9D00F71A7A /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		5C96E9372782FB9D00F71A7A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5C96E93C2782FB9E00F71A7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C96E93F2782FB9E00F71A7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C96E9412782FB9E00F71A7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,7 +78,7 @@
 		5C43BD3E2785DD10002CCE98 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5C96E9372782FB9D00F71A7A /* ListViewController.swift */,
+				5C96E9372782FB9D00F71A7A /* HomeViewController.swift */,
 				5C96E9672783232D00F71A7A /* VideoViewController.swift */,
 			);
 			path = ViewController;
@@ -135,7 +133,6 @@
 				5C96E9712784424000F71A7A /* PlayerControls */,
 				5C43BD412786D659002CCE98 /* ControlPanelView.swift */,
 				5C2B91252787570200D37143 /* ControlPanelView+Menu.swift */,
-				5C2B911F27872F5800D37143 /* ListTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,10 +248,9 @@
 				5C2B911C27871D1600D37143 /* CurrentTimeLabel.swift in Sources */,
 				5C96E96C278407AA00F71A7A /* PlayPauseButton.swift in Sources */,
 				5C96E97527844BE200F71A7A /* UIScreen+Extension.swift in Sources */,
-				5C96E9382782FB9D00F71A7A /* ListViewController.swift in Sources */,
+				5C96E9382782FB9D00F71A7A /* HomeViewController.swift in Sources */,
 				5C96E9682783232D00F71A7A /* VideoViewController.swift in Sources */,
 				5C43BD422786D659002CCE98 /* ControlPanelView.swift in Sources */,
-				5C2B912027872F5800D37143 /* ListTableViewCell.swift in Sources */,
 				5C2B911A27870D1200D37143 /* ProgressSlider.swift in Sources */,
 				5C38BC532787E516002EFDF4 /* MenuTableViewCell.swift in Sources */,
 				5C96E959278301C000F71A7A /* Video.swift in Sources */,

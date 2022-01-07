@@ -11,5 +11,4 @@ import UIKit
 struct Video {
     let name: String
     let url: String
-    let previewImage: UIImage
 }
