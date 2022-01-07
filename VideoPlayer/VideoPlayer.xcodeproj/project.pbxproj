@@ -31,7 +31,6 @@
 		5C96E9682783232D00F71A7A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9672783232D00F71A7A /* VideoViewController.swift */; };
 		5C96E96C278407AA00F71A7A /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E96B278407AA00F71A7A /* PlayPauseButton.swift */; };
 		5C96E96E2784215D00F71A7A /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E96D2784215D00F71A7A /* CloseButton.swift */; };
-		5C96E9702784410600F71A7A /* VideoNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E96F2784410600F71A7A /* VideoNameLabel.swift */; };
 		5C96E9732784487A00F71A7A /* ChangeTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E9722784487A00F71A7A /* ChangeTimeButton.swift */; };
 		5C96E97527844BE200F71A7A /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96E97427844BE200F71A7A /* UIScreen+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -63,7 +62,6 @@
 		5C96E9672783232D00F71A7A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		5C96E96B278407AA00F71A7A /* PlayPauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPauseButton.swift; sourceTree = "<group>"; };
 		5C96E96D2784215D00F71A7A /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
-		5C96E96F2784410600F71A7A /* VideoNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNameLabel.swift; sourceTree = "<group>"; };
 		5C96E9722784487A00F71A7A /* ChangeTimeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTimeButton.swift; sourceTree = "<group>"; };
 		5C96E97427844BE200F71A7A /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,9 +136,6 @@
 				5C43BD412786D659002CCE98 /* ControlPanelView.swift */,
 				5C2B91252787570200D37143 /* ControlPanelView+Menu.swift */,
 				5C2B911F27872F5800D37143 /* ListTableViewCell.swift */,
-				5C38BC522787E516002EFDF4 /* MenuTableViewCell.swift */,
-				5C38BC542787EF8A002EFDF4 /* MenuTableViewHeader.swift */,
-				5C38BC562787F07E002EFDF4 /* MenuTableViewHeader.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,7 +168,9 @@
 				5C2B911B27871D1600D37143 /* CurrentTimeLabel.swift */,
 				5C2B911D278722BC00D37143 /* TotalTimeLabel.swift */,
 				5C96E96D2784215D00F71A7A /* CloseButton.swift */,
-				5C96E96F2784410600F71A7A /* VideoNameLabel.swift */,
+				5C38BC522787E516002EFDF4 /* MenuTableViewCell.swift */,
+				5C38BC542787EF8A002EFDF4 /* MenuTableViewHeader.swift */,
+				5C38BC562787F07E002EFDF4 /* MenuTableViewHeader.xib */,
 			);
 			path = PlayerControls;
 			sourceTree = "<group>";
@@ -255,7 +252,6 @@
 				5C96E96C278407AA00F71A7A /* PlayPauseButton.swift in Sources */,
 				5C96E97527844BE200F71A7A /* UIScreen+Extension.swift in Sources */,
 				5C96E9382782FB9D00F71A7A /* ListViewController.swift in Sources */,
-				5C96E9702784410600F71A7A /* VideoNameLabel.swift in Sources */,
 				5C96E9682783232D00F71A7A /* VideoViewController.swift in Sources */,
 				5C43BD422786D659002CCE98 /* ControlPanelView.swift in Sources */,
 				5C2B912027872F5800D37143 /* ListTableViewCell.swift in Sources */,

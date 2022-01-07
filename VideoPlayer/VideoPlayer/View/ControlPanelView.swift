@@ -52,7 +52,6 @@ class ControlPanelView: UIView {
     private let progressSlider = ProgressSlider()
     private let currentTimeLabel = CurrentTimeLabel()
     private let totalTimeLabel = TotalTimeLabel()
-    private var videoNameLabel = VideoNameLabel(text: "")
     private let closePanelButton = CloseButton()
     let nextTrackButton = NextTrackButton()
     let closeMenuButton = CloseButton()
@@ -171,7 +170,6 @@ class ControlPanelView: UIView {
         addSubview(currentTimeLabel)
         addSubview(closePanelButton)
         addSubview(closeMenuButton)
-        addSubview(videoNameLabel)
     }
 
     private func setupPlayer() {
@@ -200,8 +198,6 @@ class ControlPanelView: UIView {
         tapSubtitleAudioMenuButton()
         tapClosePanelButton()
         tapCloseMenuButton()
-        videoNameLabel = VideoNameLabel(text: videos?.first?.name ?? "")
-        videoNameLabel.layoutPosition()
     }
 
     private func checkIfHideControls() {
