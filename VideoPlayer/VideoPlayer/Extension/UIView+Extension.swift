@@ -13,16 +13,18 @@ extension UIView {
         addSubview(subView)
         subView.translatesAutoresizingMaskIntoConstraints = false
 
-        if alignSafeAreaLayoutGuide {
-            subView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-            subView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
-            subView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
-            subView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-        } else {
-            subView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-            subView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-            subView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-            subView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        }
+        let viewTopAnchor = alignSafeAreaLayoutGuide
+        ? safeAreaLayoutGuide.topAnchor : topAnchor
+        let viewBottomAnchor = alignSafeAreaLayoutGuide
+        ? safeAreaLayoutGuide.bottomAnchor : bottomAnchor
+        let viewLeadingAnchor = alignSafeAreaLayoutGuide
+        ? safeAreaLayoutGuide.leadingAnchor : leadingAnchor
+        let viewTrailingAnchor = alignSafeAreaLayoutGuide
+        ? safeAreaLayoutGuide.trailingAnchor : trailingAnchor
+
+        subView.topAnchor.constraint(equalTo: viewTopAnchor).isActive = true
+        subView.bottomAnchor.constraint(equalTo: viewBottomAnchor).isActive = true
+        subView.leadingAnchor.constraint(equalTo: viewLeadingAnchor).isActive = true
+        subView.trailingAnchor.constraint(equalTo: viewTrailingAnchor).isActive = true
     }
 }
