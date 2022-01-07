@@ -115,6 +115,9 @@ class VideoViewController: UIViewController, UIGestureRecognizerDelegate {
         controlPanel.closeView = { [weak self] in
             self?.dismiss(animated: true, completion: nil)
         }
+        controlPanel.nextTrackButton.nextTrackHandler = { [weak self] in
+            self?.observeLastItemEndPlaying()
+        }
     }
 
     private func setupPlayerQueue() {

@@ -12,6 +12,7 @@ import AVFoundation
 class NextTrackButton: UIButton {
 
     var player: AVQueuePlayer?
+    var nextTrackHandler: (() -> Void)?
 
     func setup() {
         addTarget(self, action: #selector(handleNextTrack(_:)), for: .touchUpInside)
@@ -22,6 +23,7 @@ class NextTrackButton: UIButton {
     @objc private func handleNextTrack(_ sender: UIButton) {
         player?.advanceToNextItem()
         checkCurrentItem()
+        nextTrackHandler?()
     }
 
     private func checkCurrentItem() {

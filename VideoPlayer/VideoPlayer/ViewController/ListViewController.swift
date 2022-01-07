@@ -11,7 +11,7 @@ import UIKit
 class ListViewController: UIViewController {
 
     // MARK: - Properties
-    let tableView = UITableView()
+    let previewImageView = UIImageView()
     let videos = [
         Video(name: VideoResource.getName(.firstVideo),
               url: VideoResource.getUrl(.firstVideo),
@@ -32,49 +32,30 @@ class ListViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
+        setupPreviewImageView()
     }
 
-    // MARK: - Functions
-    func setupTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(ListTableViewCell.self, forCellReuseIdentifier: String(describing: ListTableViewCell.self))
-        tableView.backgroundColor = .clear
-        view.stickSubView(tableView, toSafe: true)
-    }
-}
+    // MARK: - Function
+    func setupPreviewImageView() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapPreviewImageView(_:)))
+        view.addSubview(previewImageView)
+        previewImageView.translatesAutoresizingMaskIntoConstraints = false
+        previewImageView.image = videos.first?.previewImage
+        previewImageView.addGestureRecognizer(gesture)
+        previewImageView.isUserInteractionEnabled = true
+        previewImageView.contentMode = .scaleAspectFill
+        previewImageView.layer.cornerRadius = 10.0
 
-extension ListViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ListTableViewCell.self), for: indexPath)
-
-        guard let listCell = cell as? ListTableViewCell else {
-            return cell
-        }
-        if let video = videos.first {
-            listCell.layoutCell(video: video)
-        }
-        return listCell
+        NSLayoutConstraint.activate([
+            previewImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2),
+            previewImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            previewImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            previewImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        180
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        let videoVC: VideoViewController = {
-            if indexPath.row == 0 {
-                return VideoViewController(videos: videos)
-            } else {
-                return VideoViewController(videos: [videos[indexPath.row]])
-            }
-        }()
+    @objc func tapPreviewImageView(_ sender: UIGestureRecognizer) {
+        let videoVC = VideoViewController(videos: videos)
         videoVC.modalPresentationStyle = .overFullScreen
         present(videoVC, animated: true)
     }
