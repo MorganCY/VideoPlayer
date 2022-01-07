@@ -11,15 +11,8 @@ import UIKit
 class HomeViewController: UIViewController {
 
     // MARK: - Properties
-    private lazy var playVideoButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("播放影片", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .white
-        button.addTarget(self, action: #selector(tapPlayButton(_:)), for: .touchUpInside)
-        return button
-    }()
-
+    let networkManager = NetworkManager()
+    let playVideoButton = UIButton()
     let videos = [
         Video(name: VideoResource.getName(.firstVideo),
               url: VideoResource.getUrl(.firstVideo)),
@@ -35,19 +28,35 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPlayVideoButton()
+        checkNetworkStatus()
     }
 
-    // MARK: - Function
-    func setupPlayVideoButton() {
+    // MARK: - Functions
+    private func checkNetworkStatus() {
+        networkManager.checkNetworkStatus {
+            let alert = UIAlertController(title: "網路狀態異常", message: "請檢查網路連線狀態", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+            DispatchQueue.main.async {
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+
+    private func setupPlayVideoButton() {
         view.addSubview(playVideoButton)
         playVideoButton.translatesAutoresizingMaskIntoConstraints = false
+        playVideoButton.setTitle("播放影片", for: .normal)
+        playVideoButton.setTitleColor(.black, for: .normal)
+        playVideoButton.backgroundColor = .white
+        playVideoButton.addTarget(self, action: #selector(tapPlayButton(_:)), for: .touchUpInside)
         NSLayoutConstraint.activate([
             playVideoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             playVideoButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 
-    @objc func tapPlayButton(_ sender: UIButton) {
+    @objc private func tapPlayButton(_ sender: UIButton) {
         let videoVC = VideoViewController(videos: videos)
         videoVC.modalPresentationStyle = .overFullScreen
         present(videoVC, animated: true)

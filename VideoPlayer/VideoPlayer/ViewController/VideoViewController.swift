@@ -13,6 +13,7 @@ import AVFoundation
 class VideoViewController: UIViewController, UIGestureRecognizerDelegate {
 
     // MARK: - Properties
+    let networkManager = NetworkManager()
     var videos: [Video]
     var player: AVQueuePlayer?
     var playerLayer: AVPlayerLayer?
