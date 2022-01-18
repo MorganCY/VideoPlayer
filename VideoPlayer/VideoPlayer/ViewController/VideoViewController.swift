@@ -59,11 +59,6 @@ class VideoViewController: UIViewController, UIGestureRecognizerDelegate {
         observeFirstItemEndPlaying()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIDevice.current.setValue(Int(UIInterfaceOrientation.portrait.rawValue), forKey: "orientation")
-    }
-
     // MARK: - Functions
     private func setupPlayer(playQueue: [AVPlayerItem]) {
         player = AVQueuePlayer(items: playerQueue)
@@ -73,40 +68,22 @@ class VideoViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
     private func observeFirstItemEndPlaying() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(playerHideNextTrack),
-            name: .AVPlayerItemDidPlayToEndTime,
-            object: player?.items().first
-        )
+        addObserver(playerItem: player?.items().first)
     }
 
     @objc private func playerHideNextTrack() {
         controlPanel?.nextTrackButton.isHidden = true
-        NotificationCenter.default.removeObserver(
-            self,
-            name: .AVPlayerItemDidPlayToEndTime,
-            object: player?.items().first
-        )
+        removeObserver(playerItem: player?.items().first)
         observeLastItemEndPlaying()
     }
 
     private func observeLastItemEndPlaying() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(playerDidEndPlaying),
-            name: .AVPlayerItemDidPlayToEndTime,
-            object: player?.items().last
-        )
+        addObserver(playerItem: player?.items().last)
     }
 
     @objc private func playerDidEndPlaying() {
         dismiss(animated: true, completion: nil)
-        NotificationCenter.default.removeObserver(
-            self,
-            name: .AVPlayerItemDidPlayToEndTime,
-            object: player?.items().last
-        )
+        removeObserver(playerItem: player?.items().last)
     }
 
     private func setupControlPanel() {
@@ -154,5 +131,22 @@ class VideoViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @objc private func tapped(_ sender: UITapGestureRecognizer) {
         controlPanel?.isHidden.toggle()
+    }
+
+    private func addObserver(playerItem: AVPlayerItem?) {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(playerDidEndPlaying),
+            name: .AVPlayerItemDidPlayToEndTime,
+            object: playerItem
+        )
+    }
+
+    private func removeObserver(playerItem: AVPlayerItem?) {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: .AVPlayerItemDidPlayToEndTime,
+            object: playerItem
+        )
     }
 }
