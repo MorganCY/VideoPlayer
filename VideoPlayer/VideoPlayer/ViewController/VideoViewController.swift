@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import AVKit
-import AVFoundation
 
 class VideoViewController: UIViewController, UIGestureRecognizerDelegate {
 
