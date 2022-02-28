@@ -24,7 +24,6 @@ class PlayPauseButton: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
     }
 
     required init?(coder: NSCoder) {
@@ -76,7 +75,7 @@ class PlayPauseButton: UIButton {
         ])
     }
 
-    private func setBackgroundImage(_ asset: ImageAsset) {
+    private final func setBackgroundImage(_ asset: ImageAsset) {
         setBackgroundImage(UIImage.asset(asset), for: .normal)
     }
 

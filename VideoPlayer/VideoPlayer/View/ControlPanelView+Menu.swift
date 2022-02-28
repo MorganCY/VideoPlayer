@@ -90,7 +90,7 @@ extension ControlPanelView: UITableViewDataSource, UITableViewDelegate {
         addSubview(menuStackView)
         menuStackView.translatesAutoresizingMaskIntoConstraints = false
         menuStackView.axis = .horizontal
-        menuStackView.spacing = 12
+//        menuStackView.spacing = 12 可以平均分配
         menus.forEach {
             menuStackView.addArrangedSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false

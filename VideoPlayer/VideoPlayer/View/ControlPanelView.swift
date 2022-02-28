@@ -66,7 +66,6 @@ class ControlPanelView: UIView {
     var closeView: (() -> Void)?
     var gestureHandler: ((Bool) -> Void)?
     private var playerItemObserver: NSKeyValueObservation?
-    private var playerStatusObserver: NSKeyValueObservation?
 
     // MARK: - Initializers
     override init(frame: CGRect) {
@@ -113,6 +112,7 @@ class ControlPanelView: UIView {
         player = AVQueuePlayer(items: playerQueue)
     }
 
+    // 可以一次map玩
     private func convertVideosToPlayerQueue(videoUrls: [String]) -> [AVPlayerItem] {
         var playerQueue: [AVPlayerItem] = []
         videoUrls.forEach {
