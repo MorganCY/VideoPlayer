@@ -24,11 +24,15 @@ class HomeViewController: UIViewController {
         return .portrait
     }
 
+    override var shouldAutorotate: Bool {
+        return true
+    }
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPlayVideoButton()
         checkNetworkStatus()
+        setupPlayVideoButton()
     }
 
     // MARK: - Functions
@@ -49,14 +53,14 @@ class HomeViewController: UIViewController {
         playVideoButton.setTitle("播放影片", for: .normal)
         playVideoButton.setTitleColor(.black, for: .normal)
         playVideoButton.backgroundColor = .white
-        playVideoButton.addTarget(self, action: #selector(tapPlayButton(_:)), for: .touchUpInside)
+        playVideoButton.addTarget(self, action: #selector(tapPlayVideoButton(_:)), for: .touchUpInside)
         NSLayoutConstraint.activate([
             playVideoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             playVideoButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 
-    @objc private func tapPlayButton(_ sender: UIButton) {
+    @objc private func tapPlayVideoButton(_ sender: UIButton) {
         let videoVC = VideoViewController(videos: videos)
         videoVC.modalPresentationStyle = .overFullScreen
         present(videoVC, animated: true)
