@@ -1,7 +1,7 @@
 # VideoPlayer
 <img src="https://img.shields.io/badge/Usage-AVKit-orange">
 
-### Player Controls
+### 完全客製化的 Player Controls
 
 <img src="https://i.imgur.com/kqECg86.png" width="550">
 
